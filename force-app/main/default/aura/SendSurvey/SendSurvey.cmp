@@ -1,0 +1,17 @@
+<aura:component controller="SendSurveyInvitation" implements="force:lightningQuickActionWithoutHeader,force:hasrecordId" >
+    <aura:attribute name="isSent" default="false" type="boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-align_absolute-center">
+    <aura:if isTrue="{!v.isSent}">
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_success" role="alert">
+            <span class="slds-icon_container slds-m-right_x-small" title="Success Sample Notification">
+                <lightning:icon iconName="utility:success" alternativeText="info" size="small" variant="inverse"/>
+            </span>
+            <h2>Survey has been sent to Referral.</h2>
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-text-heading_medium">Please wait while sending the survey....</div>
+        </aura:set>
+    </aura:if>
+    </div>
+</aura:component>
